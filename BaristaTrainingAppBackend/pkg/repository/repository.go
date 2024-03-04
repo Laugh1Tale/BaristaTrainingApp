@@ -8,6 +8,7 @@ import (
 
 type Authorization interface {
 	CreateEmployee(employee auth.Employee) (int, error)
+	GetEmployee(email, password string) (auth.Employee, error)
 }
 
 type Repository struct {

@@ -26,3 +26,11 @@ func (r *AuthPostgres) CreateEmployee(employee auth.Employee) (int, error) {
 
 	return id, nil
 }
+
+func (r *AuthPostgres) GetEmployee(email, password string) (auth.Employee, error) {
+	var employee auth.Employee
+	query := fmt.Sprintf("SELECT id FROM %s WHERE email=$1 AND password_hash=$2", employeeTable)
+	err := r.db.Get(&employee, query, email, password)
+
+	return employee, err
+}
