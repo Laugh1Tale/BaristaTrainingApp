@@ -1,38 +1,38 @@
 CREATE TABLE IF NOT EXISTS "lesson_status" (
-	"id" int NOT NULL UNIQUE,
+	"id" serial NOT NULL UNIQUE,
 	"name" varchar NOT NULL,
 	PRIMARY KEY ("id")
 );
 
 CREATE TABLE IF NOT EXISTS "lection_information" (
-	"lection_id" int NOT NULL,
+	"lection_id" serial NOT NULL,
 	"information_id" int NOT NULL,
 	PRIMARY KEY ("lection_id", "information_id")
 );
 
 CREATE TABLE IF NOT EXISTS "employee" (
-	"id" int NOT NULL UNIQUE,
+	"id" serial NOT NULL UNIQUE,
 	"name" varchar NOT NULL,
 	"lastname" varchar NOT NULL,
 	"email" varchar NOT NULL,
-	"password_hash" int NOT NULL,
+	"password_hash" varchar NOT NULL,
 	PRIMARY KEY ("id")
 );
 
 CREATE TABLE IF NOT EXISTS "role" (
-	"id" int NOT NULL UNIQUE,
+	"id" serial NOT NULL UNIQUE,
 	"name" varchar NOT NULL,
 	PRIMARY KEY ("id")
 );
 
 CREATE TABLE IF NOT EXISTS "course_status" (
-	"id" int NOT NULL UNIQUE,
+	"id" serial NOT NULL UNIQUE, 
 	"name" varchar NOT NULL,
 	PRIMARY KEY ("id")
 );
 
 CREATE TABLE IF NOT EXISTS "course" (
-	"id" int NOT NULL UNIQUE,
+	"id" serial NOT NULL UNIQUE,
 	"name" varchar NOT NULL,
 	"description" text NOT NULL,
 	"passing_score" int NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS "course" (
 );
 
 CREATE TABLE IF NOT EXISTS "test" (
-	"id" int NOT NULL UNIQUE,
+	"id" serial NOT NULL UNIQUE,
 	"theme" varchar NOT NULL,
 	"description" text NOT NULL,
 	"role_id" int NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS "test" (
 );
 
 CREATE TABLE IF NOT EXISTS "lesson" (
-	"id" int NOT NULL UNIQUE,
+	"id" serial NOT NULL UNIQUE,
 	"name" varchar NOT NULL,
 	"description" text NOT NULL,
 	"passing_score" int NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS "lesson" (
 );
 
 CREATE TABLE IF NOT EXISTS "question" (
-	"id" int NOT NULL UNIQUE,
+	"id" serial NOT NULL UNIQUE,
 	"theme" varchar NOT NULL,
 	"text" varchar NOT NULL,
 	"right_answer_id" int NOT NULL,

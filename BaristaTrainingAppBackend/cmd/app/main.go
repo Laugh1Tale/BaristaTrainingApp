@@ -5,21 +5,22 @@ import (
 	"barTrApp/pkg/repository"
 	baristaTrainingApp "barTrApp/pkg/server"
 	"barTrApp/pkg/service"
-	"log"
 	"os"
 
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
+	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
 
 func main() {
+	logrus.SetFormatter(new(logrus.JSONFormatter))
 	if err := initConfig(); err != nil {
-		log.Fatalf("error initializing configs: %s", err.Error())
+		logrus.Fatalf("error initializing configs: %s", err.Error())
 	}
 
 	if err := godotenv.Load("../../.env"); err != nil {
-		log.Fatalf("error loading env variables: %s", err.Error())
+		logrus.Fatalf("error loading env variables: %s", err.Error())
 	}
 
 	db, err := repository.NewPostgresDB(repository.Config{
@@ -32,7 +33,7 @@ func main() {
 	})
 
 	if err != nil {
-		log.Fatalf("failed to initialize db %s", err.Error())
+		logrus.Fatalf("failed to initialize db %s", err.Error())
 	}
 
 	repository := repository.NewRepository(db)
@@ -41,7 +42,7 @@ func main() {
 
 	server := new(baristaTrainingApp.Server)
 	if err := server.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
-		log.Fatalf("error ocured while running http server")
+		logrus.Fatalf("error ocured while running http server")
 	}
 }
 
