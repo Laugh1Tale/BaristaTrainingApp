@@ -49,3 +49,10 @@ func (h *Handler) signIn(c *gin.Context) {
 		"token": token,
 	})
 }
+
+func (h *Handler) signNorm(c *gin.Context) {
+	id, _ := c.Get(employeeCtx)
+	c.JSON(http.StatusOK, map[string]interface{}{
+		"id": id,
+	})
+}
