@@ -1,24 +1,22 @@
 package handler
 
-// import (
-// 	"net/http"
+import (
+	"net/http"
 
-// 	"github.com/gin-gonic/gin"
-// )
+	"github.com/gin-gonic/gin"
+)
 
-// type Lesson struct {
-// 	Id            int    `json:"-"`
-// 	Name          string `json:"name" binding:"required"`
-// 	Description   string `json:"description" binding:"required"`
-// 	Passing_Score int    `json:"passing_score" binding:"required"`
-// }
+type Test struct {
+	Id          int    `json:"-"`
+	Theme       string `json:"theme" binding:"required"`
+	Description string `json:"description" binding:"required"`
+	Role_id     int    `json:"role_id" binding:"required"`
+}
 
-// func (h *Handler) getLessons(c *gin.Context) {
-// 	lessons := []Lesson{
-// 		{Id: 1, Name: "Как варить кофе", Description: "Изготовление разных видов кофе", Passing_Score: 8},
-// 		{Id: 2, Name: "Клиентоориентированность", Description: "Как общаться c клиентами", Passing_Score: 8},
-// 		{Id: 3, Name: "Стрессоустойчивость", Description: "Умение справляться в стрессовых ситуациях", Passing_Score: 8},
-// 	}
+func (h *Handler) getTests(c *gin.Context) {
+	tests := []Test{
+		{Id: 1, Theme: "Латте", Description: "Тест по приготовлению латте", Role_id: 1},
+	}
 
-// 	c.JSON(http.StatusOK, lessons)
-// }
+	c.JSON(http.StatusOK, tests)
+}

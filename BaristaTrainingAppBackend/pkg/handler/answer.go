@@ -7,17 +7,18 @@ import (
 )
 
 type Answer struct {
-	Id            int    `json:"-"`
-	Name          string `json:"name" binding:"required"`
-	Description   string `json:"description" binding:"required"`
-	Passing_Score int    `json:"passing_score" binding:"required"`
+	Id   int    `json:"-"`
+	Text string `json:"text" binding:"required"`
 }
 
 func (h *Handler) getAnswers(c *gin.Context) {
 	answers := []Answer{
-		{Id: 1, Name: "Стажировка", Description: "курс для того чтобы приступить к стажировке", Passing_Score: 8},
-		{Id: 2, Name: "Бариста", Description: "курс для того чтобы приступить к работе бариста", Passing_Score: 9},
-		{Id: 3, Name: "Менеджер", Description: "курс для того чтобы приступить к работе менеджера", Passing_Score: 10},
+		{Id: 1, Text: "3 молока : 1 эспрессо"},
+		{Id: 2, Text: "1 молоко : 3 эспрессо"},
+		{Id: 3, Text: "нет (не нужно)"},
+		{Id: 4, Text: "да (необходимо)"},
+		{Id: 5, Text: "миндальный"},
+		{Id: 6, Text: "абрикосовый"},
 	}
 
 	c.JSON(http.StatusOK, answers)

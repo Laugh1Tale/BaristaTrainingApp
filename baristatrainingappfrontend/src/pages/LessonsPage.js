@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { LectionPage } from './LectionPage'
+import { TestPoints } from './QuestionsPage'
 
 export const LessonsPage = () => {
     const [lessons, setLesson] = useState([]);
@@ -10,7 +11,7 @@ export const LessonsPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/lessons'); // Замените 'YOUR_API_ENDPOINT' на ваш адрес API
+          const response = await axios.get('http://localhost:8000/lessons');
           setLesson(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -35,9 +36,12 @@ export const LessonsPage = () => {
                               <Routes>
                               <Route path="/lections" element={<LectionPage />} />
                               </Routes>
-                              </div> // Замените на свой URL для первой новости
+                              </div> 
             ) : <h3>{item.name}</h3>}
               <p>{item.description}</p>
+              <p>Ваш балл</p>
+              {index === 0 ? <p>{TestPoints}</p>
+              : <p>0</p>}
               <p>Проходной балл</p>
               <p>{item.passing_score}</p>
             </li>

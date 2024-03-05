@@ -43,15 +43,17 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		information.GET("", h.getInformations)
 	}
 
-	// tests := router.Group("/tests", h.employeeIdentity)
-	// {
-	// 	tests.GET("", h.getTests)
-	// }
+	tests := router.Group("/tests")
+	{
+		tests.GET("", h.getTests)
+	}
 
-	// questions := router.Group("/questions", h.employeeIdentity)
-	// {
-	// 	questions.GET("", h.getQuestions)
-	// }
+	questions := router.Group("/questions")
+	{
+		questions.GET("", h.getQuestions)
+	}
+
+	//h.employeeIdentity
 
 	answers := router.Group("/answers")
 	{

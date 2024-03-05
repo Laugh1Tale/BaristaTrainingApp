@@ -1,24 +1,24 @@
 package handler
 
-// import (
-// 	"net/http"
+import (
+	"net/http"
 
-// 	"github.com/gin-gonic/gin"
-// )
+	"github.com/gin-gonic/gin"
+)
 
-// type Lesson struct {
-// 	Id            int    `json:"-"`
-// 	Name          string `json:"name" binding:"required"`
-// 	Description   string `json:"description" binding:"required"`
-// 	Passing_Score int    `json:"passing_score" binding:"required"`
-// }
+type Question struct {
+	Id              int    `json:"-"`
+	Theme           string `json:"theme" binding:"required"`
+	Text            string `json:"text" binding:"required"`
+	Right_answer_id int    `json:"right_answer_id" binding:"required"`
+}
 
-// func (h *Handler) getLessons(c *gin.Context) {
-// 	lessons := []Lesson{
-// 		{Id: 1, Name: "Как варить кофе", Description: "Изготовление разных видов кофе", Passing_Score: 8},
-// 		{Id: 2, Name: "Клиентоориентированность", Description: "Как общаться c клиентами", Passing_Score: 8},
-// 		{Id: 3, Name: "Стрессоустойчивость", Description: "Умение справляться в стрессовых ситуациях", Passing_Score: 8},
-// 	}
+func (h *Handler) getQuestions(c *gin.Context) {
+	questions := []Question{
+		{Id: 1, Theme: "Изготовление латте", Text: "С какими пропорциями эспрессо/молока варится латте", Right_answer_id: 1},
+		{Id: 1, Theme: "Изготовление латте", Text: "Необходима ли молочная пена при изготовлении латте", Right_answer_id: 4},
+		{Id: 1, Theme: "Сиропы для латте", Text: "Какого сиропа нет в нашей сети кофеен", Right_answer_id: 6},
+	}
 
-// 	c.JSON(http.StatusOK, lessons)
-// ?
+	c.JSON(http.StatusOK, questions)
+}

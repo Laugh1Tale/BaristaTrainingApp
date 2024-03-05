@@ -13,9 +13,9 @@ type Lection struct {
 
 func (h *Handler) getLections(c *gin.Context) {
 	lections := []Lection{
-		{Id: 0, Theme: "Латте"},
-		{Id: 1, Theme: "Эспрессо"},
-		{Id: 2, Theme: "Капучино"},
+		{Id: 1, Theme: "Латте"},
+		{Id: 2, Theme: "Эспрессо"},
+		{Id: 3, Theme: "Капучино"},
 	}
 
 	c.JSON(http.StatusOK, lections)

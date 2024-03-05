@@ -10,7 +10,7 @@ export const LectionPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/lections'); // Замените 'YOUR_API_ENDPOINT' на ваш адрес API
+          const response = await axios.get('http://localhost:8000/lections');
           setLection(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -29,15 +29,14 @@ export const LectionPage = () => {
                {index === 0 ? (
                               <div>
                               <Link to="/information">
-                                <h3>{item.name}</h3>
+                                <h3>{item.theme}</h3>
                               </Link>
               
                               <Routes>
                               <Route path="/information" element={<InformationPage />} />
                               </Routes>
-                              </div> // Замените на свой URL для первой новости
-            ) : <h3>{item.name}</h3>}
-              <p>{item.theme}</p>
+                              </div> 
+            ) : <h3>{item.theme}</h3>}
             </li>
           ))}
         </ul>

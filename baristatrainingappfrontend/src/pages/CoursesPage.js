@@ -10,7 +10,7 @@ export const CoursesPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/courses'); // Замените 'YOUR_API_ENDPOINT' на ваш адрес API
+          const response = await axios.get('http://localhost:8000/courses'); 
           setCourse(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -35,7 +35,7 @@ export const CoursesPage = () => {
                               <Routes>
                               <Route path="/lessons" element={<LessonsPage />} />
                               </Routes>
-                              </div> // Замените на свой URL для первой новости
+                              </div> 
             ) : <h3>{item.name}</h3>}
               <p>{item.description}</p>
               <p>Проходной балл</p>

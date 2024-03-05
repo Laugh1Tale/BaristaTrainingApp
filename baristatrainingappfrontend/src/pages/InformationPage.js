@@ -10,7 +10,7 @@ export const InformationPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/information'); // Замените 'YOUR_API_ENDPOINT' на ваш адрес API
+          const response = await axios.get('http://localhost:8000/information');
           setInformation(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -20,13 +20,13 @@ export const InformationPage = () => {
       fetchData();
     }, []);
 
-    const [test, setTest] = useState([]);
+    const [tests, setTest] = useState([]);
 
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/tests'); // Замените 'YOUR_API_ENDPOINT' на ваш адрес API
-          setInformation(response.data);
+          const response = await axios.get('http://localhost:8000/tests');
+          setTest(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
         }
@@ -41,25 +41,23 @@ export const InformationPage = () => {
         <ul>
           {information.map((item, index) => (
             <li key={index}>
-               {index === 0 ? (
-                              <div>
-                              <Link to="/tests">
-                                <h3>{item.name}</h3>
-                              </Link>
-              
-                              <Routes>
-                              <Route path="/tests" element={<TestsPage />} />
-                              </Routes>
-                              </div> // Замените на свой URL для первой новости
-            ) : <h3>{item.name}</h3>}
-              <p>{item.theme}</p>
-              <p>{item.text}</p>
+              <h2>{item.theme}</h2>
+              <h3>{item.text}</h3>
             </li>
           ))}
         </ul>
         <h1>Test</h1>   
-        <h2>{test.theme}</h2>
-        <h3>{test.description}</h3>
+        <h2>{tests.theme}</h2>
+        <h3>{tests.description}</h3>
+        <div>
+        <Link to="/tests">
+        <button>решить тест</button>
+        </Link>
+
+        <Routes>
+        <Route path="/tests" element={<TestsPage />} />
+        </Routes>
+        </div>
       </div>
     )
 }
