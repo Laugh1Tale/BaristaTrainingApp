@@ -1,6 +1,7 @@
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { SignIn } from "./SignIn"
+import { CoursesPage } from "./CoursesPage"
 
 export const SignUp = () => {
     return (
@@ -38,7 +39,13 @@ export const SignUp = () => {
           </div>
         </div>
         <div className="card-action">
+            <Link to="/courses">
             <button className="btn blue-darken-3" style={{marginRight: 10}}>Регистрация</button>
+            </Link>
+
+            <Routes>
+            <Route path="/courses" element={<CoursesPage />} />
+            </Routes>
             <Link to="/sign-in">
             <button className="btn grey lighten-1 black-text" href="./SignIn">Вход</button>
             </Link>

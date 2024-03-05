@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { LessonsPage } from './LessonsPage'
-import { TestPoints } from './QuestionsPage'
 
 export const TestsPage = () => {
     const [questions, setQuestions] = useState([]);
@@ -46,7 +45,8 @@ export const TestsPage = () => {
             <li key={index}>
                {index === 0 ? (
                               <div>
-                                <h3>{item.theme}</h3>
+                                <h2>{item.theme}</h2>
+                                <h3>{item.text}</h3>
                                 <form action="#">
     <p>
       <label>
@@ -65,7 +65,8 @@ export const TestsPage = () => {
             ) : <div></div>}
                {index === 1 ? (
                               <div>
-                                <h3>{item.theme}</h3>
+                                <h2>{item.theme}</h2>
+                                <h3>{item.text}</h3>
                                 <form action="#">
     <p>
       <label>
@@ -84,7 +85,8 @@ export const TestsPage = () => {
             ) : <div></div>}
                {index === 2 ? (
                             <div>
-                                <h3>{item.theme}</h3>
+                                <h2>{item.theme}</h2>
+                                <h3>{item.text}</h3>
                                 <form action="#">
     <p>
       <label>
