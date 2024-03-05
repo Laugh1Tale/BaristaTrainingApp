@@ -4,6 +4,7 @@ import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { LectionPage } from './LectionPage'
 import { TestPoints } from './QuestionsPage'
+import '../index.css';
 
 export const LessonsPage = () => {
     const [lessons, setLesson] = useState([]);

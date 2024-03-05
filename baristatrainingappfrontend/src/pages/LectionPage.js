@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { InformationPage } from './InformationPage'
+import '../index.css';
 
 export const LectionPage = () => {
     const [lections, setLection] = useState([]);

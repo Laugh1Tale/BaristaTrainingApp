@@ -2,6 +2,7 @@ import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { SignIn } from "./SignIn"
 import { CoursesPage } from "./CoursesPage"
+import '../index.css';
 
 export const SignUp = () => {
     return (

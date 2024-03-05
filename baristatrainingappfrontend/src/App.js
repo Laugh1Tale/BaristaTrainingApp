@@ -1,5 +1,5 @@
 import React from 'react';
-import 'materialize-css';
+import './index.css';
 import {BrowserRouter as Router, Routes, Navigate, Route, redirect} from 'react-router-dom'
 import {CoursesPage} from './pages/CoursesPage'
 import {LessonsPage} from './pages/LessonsPage'
