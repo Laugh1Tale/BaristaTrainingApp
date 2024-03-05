@@ -8,6 +8,8 @@ import {QuestionsPage} from './pages/QuestionsPage'
 import {TestsPage} from './pages/TestsPage'
 import { SignIn } from './pages/SignIn'
 import { SignUp } from './pages/SignUp'
+import { LectionPage } from './pages/LectionPage';
+import { InformationPage } from './pages/InformationPage';
 
 function App() {
   const isAuthentificated=true
@@ -19,6 +21,8 @@ function App() {
           <Route path="/links" element={<LinksPage />} />
           <Route path="/courses" element={<CoursesPage />} />
           <Route path="/lessons" element={<LessonsPage />} />
+          <Route path="/lections" element={<LectionPage />} />
+          <Route path="/information" element={<InformationPage />} />
           <Route path="/questions" element={<QuestionsPage />} />
           <Route path="/tests" element={<TestsPage />} />
         </Routes>

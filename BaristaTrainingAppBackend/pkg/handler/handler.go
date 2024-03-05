@@ -23,37 +23,37 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		auth.POST("/sign-in", h.signIn)
 	}
 
-	courses := router.Group("/courses", h.employeeIdentity)
+	courses := router.Group("/courses")
 	{
 		courses.GET("", h.getCourses)
 	}
 
-	lessons := router.Group("/lessons", h.employeeIdentity)
+	lessons := router.Group("/lessons")
 	{
 		lessons.GET("", h.getLessons)
 	}
 
-	lection := router.Group("/lections", h.employeeIdentity)
+	lection := router.Group("/lections")
 	{
 		lection.GET("", h.getLections)
 	}
 
-	information := router.Group("/informations", h.employeeIdentity)
+	information := router.Group("/information")
 	{
 		information.GET("", h.getInformations)
 	}
 
-	tests := router.Group("/tests", h.employeeIdentity)
-	{
-		tests.GET("", h.getTests)
-	}
+	// tests := router.Group("/tests", h.employeeIdentity)
+	// {
+	// 	tests.GET("", h.getTests)
+	// }
 
-	questions := router.Group("/questions", h.employeeIdentity)
-	{
-		questions.GET("", h.getQuestions)
-	}
+	// questions := router.Group("/questions", h.employeeIdentity)
+	// {
+	// 	questions.GET("", h.getQuestions)
+	// }
 
-	answers := router.Group("/answers", h.employeeIdentity)
+	answers := router.Group("/answers")
 	{
 		answers.GET("", h.getAnswers)
 	}

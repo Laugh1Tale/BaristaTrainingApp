@@ -1,4 +1,4 @@
-// package handler
+package handler
 
 // import (
 // 	"net/http"
@@ -21,4 +21,4 @@
 // 	}
 
 // 	c.JSON(http.StatusOK, lessons)
-// }
+// ?
