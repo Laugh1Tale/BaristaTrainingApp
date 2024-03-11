@@ -15,7 +15,7 @@ type Server struct {
 func (s *Server) Run(port string, handler http.Handler) error {
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"http://localhost", "http://localhost:3000", "http://localhost:8000"},
-		AllowedMethods:   []string{http.MethodGet, http.MethodPost, http.MethodDelete},
+		AllowedMethods:   []string{http.MethodGet, http.MethodPost, http.MethodDelete, http.MethodConnect},
 		AllowCredentials: true,
 	})
 

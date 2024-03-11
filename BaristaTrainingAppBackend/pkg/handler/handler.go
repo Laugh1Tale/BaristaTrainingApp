@@ -3,7 +3,11 @@ package handler
 import (
 	"barTrApp/pkg/service"
 
+	_ "barTrApp/docs"
+
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 type Handler struct {
@@ -17,47 +21,50 @@ func NewHandler(services *service.Service) *Handler {
 func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
 
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
 	auth := router.Group("/auth")
 	{
 		auth.POST("/sign-up", h.signUp)
 		auth.POST("/sign-in", h.signIn)
 	}
 
-	courses := router.Group("/courses")
+	api := router.Group("/api")
 	{
-		courses.GET("", h.getCourses)
-	}
+		courses := api.Group("/courses")
+		{
+			courses.GET("", h.getCourses)
+		}
 
-	lessons := router.Group("/lessons")
-	{
-		lessons.GET("", h.getLessons)
-	}
+		lessons := api.Group("/lessons")
+		{
+			lessons.GET("", h.getLessons)
+		}
 
-	lection := router.Group("/lections")
-	{
-		lection.GET("", h.getLections)
-	}
+		lection := api.Group("/lections")
+		{
+			lection.GET("", h.getLections)
+		}
 
-	information := router.Group("/information")
-	{
-		information.GET("", h.getInformations)
-	}
+		information := api.Group("/information")
+		{
+			information.GET("", h.getInformations)
+		}
 
-	tests := router.Group("/tests")
-	{
-		tests.GET("", h.getTests)
-	}
+		tests := api.Group("/tests")
+		{
+			tests.GET("", h.getTests)
+		}
 
-	questions := router.Group("/questions")
-	{
-		questions.GET("", h.getQuestions)
-	}
+		questions := api.Group("/questions")
+		{
+			questions.GET("", h.getQuestions)
+		}
 
-	//h.employeeIdentity
-
-	answers := router.Group("/answers")
-	{
-		answers.GET("", h.getAnswers)
+		answers := api.Group("/answers")
+		{
+			answers.GET("", h.getAnswers)
+		}
 	}
 
 	return router

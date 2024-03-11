@@ -1,6 +1,7 @@
 package main
 
 import (
+	//"barTrApp/docs"
 	"barTrApp/pkg/handler"
 	"barTrApp/pkg/repository"
 	baristaTrainingApp "barTrApp/pkg/server"
@@ -12,6 +13,17 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
+
+// @tittle Barista Training App API
+// @version 1.0
+// @description API Server for Barista Training Application
+
+// @host localhost:8000
+// @BasePath /
+
+// @securityDefinations.apikey ApiKeyAuth
+// @in header
+// @name Authorization
 
 func main() {
 	logrus.SetFormatter(new(logrus.JSONFormatter))
