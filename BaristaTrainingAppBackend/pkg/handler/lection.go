@@ -1,18 +1,22 @@
 package handler
 
 import (
+	"barTrApp/pkg/model"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-type Lection struct {
-	Id    int    `json:"-"`
-	Theme string `json:"theme" binding:"required"`
-}
-
+// @Summary Lections
+// @Tags api
+// @Description lections list
+// @ID lections
+// @Accept  json
+// @Produce  json
+// @Success 200 {string} string "token"
+// @Router /api/lections [get]
 func (h *Handler) getLections(c *gin.Context) {
-	lections := []Lection{
+	lections := []model.LectionResponse{
 		{Id: 1, Theme: "Латте"},
 		{Id: 2, Theme: "Эспрессо"},
 		{Id: 3, Theme: "Капучино"},

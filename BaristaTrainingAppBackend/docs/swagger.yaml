@@ -32,6 +32,118 @@ info:
   description: API Server for Barista Training Application
   version: "1.0"
 paths:
+  /api/answers:
+    get:
+      consumes:
+      - application/json
+      description: Answers list
+      operationId: answers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: token
+          schema:
+            type: string
+      summary: Answers
+      tags:
+      - api
+  /api/courses:
+    get:
+      consumes:
+      - application/json
+      description: courses list
+      operationId: courses
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: token
+          schema:
+            type: string
+      summary: Courses
+      tags:
+      - api
+  /api/information:
+    get:
+      consumes:
+      - application/json
+      description: information list
+      operationId: information
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: token
+          schema:
+            type: string
+      summary: Information
+      tags:
+      - api
+  /api/lections:
+    get:
+      consumes:
+      - application/json
+      description: lections list
+      operationId: lections
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: token
+          schema:
+            type: string
+      summary: Lections
+      tags:
+      - api
+  /api/lessons:
+    get:
+      consumes:
+      - application/json
+      description: Lessons list
+      operationId: lessons
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: token
+          schema:
+            type: string
+      summary: Lessons
+      tags:
+      - api
+  /api/questions:
+    get:
+      consumes:
+      - application/json
+      description: questions list
+      operationId: questions
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: token
+          schema:
+            type: string
+      summary: Questions
+      tags:
+      - api
+  /api/tests:
+    get:
+      consumes:
+      - application/json
+      description: tests list
+      operationId: tests
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: token
+          schema:
+            type: string
+      summary: Tests
+      tags:
+      - api
   /auth/sign-in:
     post:
       consumes:
