@@ -1,14 +1,14 @@
 package repository
 
 import (
-	"barTrApp/pkg/auth"
+	"barTrApp/pkg/model"
 
 	"github.com/jmoiron/sqlx"
 )
 
 type Authorization interface {
-	CreateEmployee(employee auth.Employee) (int, error)
-	GetEmployee(email, password string) (auth.Employee, error)
+	CreateEmployee(employee model.Employee) (int, error)
+	GetEmployee(email, password string) (model.Employee, error)
 }
 
 type Repository struct {

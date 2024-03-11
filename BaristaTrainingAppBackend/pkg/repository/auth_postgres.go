@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"barTrApp/pkg/auth"
+	"barTrApp/pkg/model"
 	"fmt"
 
 	"github.com/jmoiron/sqlx"
@@ -15,7 +15,7 @@ func NewAuthPostgres(db *sqlx.DB) *AuthPostgres {
 	return &AuthPostgres{db: db}
 }
 
-func (r *AuthPostgres) CreateEmployee(employee auth.Employee) (int, error) {
+func (r *AuthPostgres) CreateEmployee(employee model.Employee) (int, error) {
 	var id int
 	query := fmt.Sprintf("INSERT INTO %s (name, lastname, email, password_hash) values ($1, $2, $3, $4) RETURNING id", employeeTable)
 	row := r.db.QueryRow(query, employee.Name, employee.LastName, employee.Email, employee.Password)
@@ -27,8 +27,8 @@ func (r *AuthPostgres) CreateEmployee(employee auth.Employee) (int, error) {
 	return id, nil
 }
 
-func (r *AuthPostgres) GetEmployee(email, password string) (auth.Employee, error) {
-	var employee auth.Employee
+func (r *AuthPostgres) GetEmployee(email, password string) (model.Employee, error) {
+	var employee model.Employee
 	query := fmt.Sprintf("SELECT id FROM %s WHERE email=$1 AND password_hash=$2", employeeTable)
 	err := r.db.Get(&employee, query, email, password)
 

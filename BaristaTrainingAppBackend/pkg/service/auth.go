@@ -1,7 +1,7 @@
 package service
 
 import (
-	"barTrApp/pkg/auth"
+	"barTrApp/pkg/model"
 	"barTrApp/pkg/repository"
 	"crypto/sha1"
 	"errors"
@@ -30,7 +30,7 @@ func newAuthService(repository repository.Authorization) *AuthService {
 	return &AuthService{repository: repository}
 }
 
-func (s *AuthService) CreateEmployee(employee auth.Employee) (int, error) {
+func (s *AuthService) CreateEmployee(employee model.Employee) (int, error) {
 	employee.Password = generatePasswordHash(employee.Password)
 	return s.repository.CreateEmployee(employee)
 }

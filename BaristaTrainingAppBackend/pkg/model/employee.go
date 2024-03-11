@@ -1,4 +1,4 @@
-package auth
+package model
 
 type Employee struct {
 	Id       int    `json:"-" db:"id"`
