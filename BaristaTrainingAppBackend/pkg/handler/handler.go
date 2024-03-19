@@ -33,7 +33,11 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	{
 		courses := api.Group("/courses")
 		{
+			// courses.POST("/", h.createCourse)
 			courses.GET("", h.getCourses)
+			// courses.GET("/:id", h.getCourseById)
+			// courses.PUT("/:id", h.updateCourse)
+			// courses.DELETE("/:id", h.deleteCourse)
 		}
 
 		lessons := api.Group("/lessons")
@@ -49,6 +53,10 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		information := api.Group("/information")
 		{
 			information.GET("", h.getInformations)
+			// courses.GET("/", h.getInformation)
+			// courses.GET("/:id", h.getInformation)
+			// courses.PUT("/:id", h.updateInformation)
+			// courses.DELETE("/:id", h.deleteInformation)
 		}
 
 		tests := api.Group("/tests")

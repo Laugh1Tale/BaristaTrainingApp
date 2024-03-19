@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { LessonsPage } from './LessonsPage'
-import '../index.css';
+import '../css/courses.css';
 
 export const CoursesPage = () => {
     const [courses, setCourse] = useState([]);
@@ -11,7 +11,7 @@ export const CoursesPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/courses'); 
+          const response = await axios.get('http://localhost:8000/api/courses'); 
           setCourse(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -21,29 +21,42 @@ export const CoursesPage = () => {
       fetchData();
     }, []);
 
+    let my_href= "/courses";
+
     return (
-        <div>
-        <h1>Courses</h1>
-        <ul>
+      <div class="ag-format-container">
+        <div class="ag-courses_box">
+
           {courses.map((item, index) => (
-            <li key={index}>
-               {index === 0 ? (
-                              <div>
-                              <Link to="/lessons">
-                                <h3>{item.name}</h3>
-                              </Link>
-              
-                              <Routes>
-                              <Route path="/lessons" element={<LessonsPage />} />
-                              </Routes>
-                              </div> 
-            ) : <h3>{item.name}</h3>}
-              <p>{item.description}</p>
-              <p>Проходной балл</p>
-              <p>{item.passing_score}</p>
-            </li>
+
+            <div class="ag-courses_item">
+              {index === 0 ? my_href = "/lessons" : my_href = "/courses"}
+              <a href={my_href} class="ag-courses-item_link">
+              <div class="ag-courses-item_bg"></div>
+
+              <div class="ag-courses-item_title">
+                {item.name}
+              </div>
+
+              <div class="ag-courses-item_date-box">
+                {item.description}
+              </div>
+
+              <div class="ag-courses-item_date-box">
+                {"\n"}
+              </div>
+
+            <div class="ag-courses-item_date-box">
+                Pasing Score:
+              <span class="ag-courses-item_date">
+                {item.passing_score}
+              </span>
+            </div>
+            </a>
+          </div>
           ))}
-        </ul>
+
+        </div>
       </div>
     )
 }

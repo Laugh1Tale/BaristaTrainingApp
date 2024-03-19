@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { InformationPage } from './InformationPage'
-import '../index.css';
+//import '../index.css';
 
 export const LectionPage = () => {
     const [lections, setLection] = useState([]);
@@ -11,7 +11,7 @@ export const LectionPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/lections');
+          const response = await axios.get('http://localhost:8000/api/lections');
           setLection(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -21,26 +21,28 @@ export const LectionPage = () => {
       fetchData();
     }, []);
 
+    let my_href="/lections"
+
     return (
-        <div>
-        <h1>Lections</h1>
-        <ul>
-          {lections.map((item, index) => (
-            <li key={index}>
-               {index === 0 ? (
-                              <div>
-                              <Link to="/information">
-                                <h3>{item.theme}</h3>
-                              </Link>
-              
-                              <Routes>
-                              <Route path="/information" element={<InformationPage />} />
-                              </Routes>
-                              </div> 
-            ) : <h3>{item.theme}</h3>}
-            </li>
-          ))}
-        </ul>
+      <div class="ag-format-container">
+      <div class="ag-courses_box">
+
+        {lections.map((item, index) => (
+
+          <div class="ag-courses_item">
+            {index === 0 ? my_href = "/information" : my_href = "/lections"}
+            <a href={my_href} class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+
+            <div class="ag-courses-item_title">
+              {item.theme}
+            </div>
+
+          </a>
+        </div>
+        ))}
+
       </div>
+    </div>
     )
 }

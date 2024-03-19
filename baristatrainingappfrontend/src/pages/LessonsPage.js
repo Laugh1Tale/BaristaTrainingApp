@@ -4,7 +4,7 @@ import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { LectionPage } from './LectionPage'
 import { TestPoints } from './QuestionsPage'
-import '../index.css';
+import '../css/courses.css';
 
 export const LessonsPage = () => {
     const [lessons, setLesson] = useState([]);
@@ -12,7 +12,7 @@ export const LessonsPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/lessons');
+          const response = await axios.get('http://localhost:8000/api/lessons');
           setLesson(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -22,32 +22,42 @@ export const LessonsPage = () => {
       fetchData();
     }, []);
 
+    let my_href="/lessons"
+
     return (
-        <div>
-        <h1>Lessons</h1>
-        <ul>
-          {lessons.map((item, index) => (
-            <li key={index}>
-               {index === 0 ? (
-                              <div>
-                              <Link to="/lections">
-                                <h3>{item.name}</h3>
-                              </Link>
-              
-                              <Routes>
-                              <Route path="/lections" element={<LectionPage />} />
-                              </Routes>
-                              </div> 
-            ) : <h3>{item.name}</h3>}
-              <p>{item.description}</p>
-              <p>Ваш балл</p>
-              {index === 0 ? <p>{TestPoints}</p>
-              : <p>0</p>}
-              <p>Проходной балл</p>
-              <p>{item.passing_score}</p>
-            </li>
-          ))}
-        </ul>
+      <div class="ag-format-container">
+      <div class="ag-courses_box">
+
+        {lessons.map((item, index) => (
+
+          <div class="ag-courses_item">
+            {index === 0 ? my_href = "/lections" : my_href = "/lessons"}
+            <a href={my_href} class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+
+            <div class="ag-courses-item_title">
+              {item.name}
+            </div>
+
+            <div class="ag-courses-item_date-box">
+              {item.description}
+            </div>
+
+            <div class="ag-courses-item_date-box">
+              {"\n"}
+            </div>
+
+          <div class="ag-courses-item_date-box">
+              Pasing Score:
+            <span class="ag-courses-item_date">
+              {item.passing_score}
+            </span>
+          </div>
+          </a>
+        </div>
+        ))}
+
       </div>
+    </div>
     )
 }

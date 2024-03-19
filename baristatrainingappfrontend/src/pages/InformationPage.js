@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { TestsPage } from './TestsPage'
-import '../index.css';
+//import '../index.css';
 
 export const InformationPage = () => {
     const [information, setInformation] = useState([]);
@@ -11,7 +11,7 @@ export const InformationPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/information');
+          const response = await axios.get('http://localhost:8000/api/information');
           setInformation(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -26,7 +26,7 @@ export const InformationPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/tests');
+          const response = await axios.get('http://localhost:8000/api/tests');
           setTest(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -37,17 +37,38 @@ export const InformationPage = () => {
     }, []);
 
     return (
-        <div>
-        <h1>information</h1>
-        <ul>
-          {information.map((item, index) => (
-            <li key={index}>
-              <h2>{item.theme}</h2>
-              <h3>{item.text}</h3>
-            </li>
-          ))}
-        </ul>
-        <h1>Test</h1>   
+      <div class="ag-format-container">
+      <div class="ag-courses_box">
+
+        {information.map((item, index) => (
+
+          <div class="ag-courses_item">
+            <a href="/information" class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+
+            <div class="ag-courses-item_title">
+              {item.theme}
+            </div>
+
+            <div class="ag-courses-item_date-box">
+            </div>
+
+            <div class="ag-courses-item_date-box">
+              {"\n"}
+            </div>
+
+          <div class="ag-courses-item_date-box">
+            <span class="ag-courses-item_date">
+              {item.text}
+            </span>
+          </div>
+          </a>
+        </div>
+        ))}
+
+      </div>
+
+      <h1>Test</h1>   
         <h2>{tests.theme}</h2>
         <h3>{tests.description}</h3>
         <div>
@@ -59,6 +80,6 @@ export const InformationPage = () => {
         <Route path="/tests" element={<TestsPage />} />
         </Routes>
         </div>
-      </div>
+    </div>
     )
 }

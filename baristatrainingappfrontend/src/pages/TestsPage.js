@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { LessonsPage } from './LessonsPage'
-import '../index.css';
+//import '../index.css';
 
 export const TestsPage = () => {
     const [questions, setQuestions] = useState([]);
@@ -11,7 +11,7 @@ export const TestsPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/questions');
+          const response = await axios.get('http://localhost:8000/api/questions');
           setQuestions(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);
@@ -26,7 +26,7 @@ export const TestsPage = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/answers');
+          const response = await axios.get('http://localhost:8000/api/answers');
           setAnswers(response.data);
         } catch (error) {
           console.error('Error fetching data: ', error);

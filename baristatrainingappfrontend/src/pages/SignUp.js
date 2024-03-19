@@ -2,61 +2,51 @@ import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { SignIn } from "./SignIn"
 import { CoursesPage } from "./CoursesPage"
-import '../index.css';
+import '../css/auth.css';
 
 export const SignUp = () => {
     return (
-        <div className="row">
-            <div className="col s6 offset-s3">
-                <h1>Barista Training App</h1>
-                <div className="card blue darken-1">
-        <div className="card-content white-text">
-          <span className="card-title">Регистрация</span>
-          
-          <div>
-          <div className="input-field">
-            <input id="email_inline" type="email"/>
-            <label for="email_inline">Email</label>
-            <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
-          </div>
+      <body>
+        <section className="container forms">
+          <div className="form signup">
+            <div className="form-content">
+              <header>Signup</header>
+              <form action="#">
+                <div className="field input-field">
+                  <input placeholder="name" />
+                </div>
 
-          <div class="input-field">
-          <input id="last_name" />
-          <label for="last_name">Name</label>
-        </div>
+                <div className="field input-field">
+                  <input placeholder="last_name" />
+                </div>
 
-        <div class="input-field">
-          <input id="last_name" />
-          <label for="last_name">Last Name</label>
-        </div>
-    
-    <div className="row">
-        <div className="input-field">
-          <input id="password" type="password"/>
-          <label for="password">Password</label>
-        </div>
-      </div>
+                <div className="field input-field">
+                <input placeholder="Email" type="email" className="input" />
+                </div>
 
-          </div>
-        </div>
-        <div className="card-action">
-            <Link to="/courses">
-            <button className="btn blue-darken-3" style={{marginRight: 10}}>Регистрация</button>
-            </Link>
+                <div className="field input-field">
+                  <input placeholder="Password" type="password" classNames="validate" />
+                </div>
 
-            <Routes>
-            <Route path="/courses" element={<CoursesPage />} />
-            </Routes>
-            <Link to="/sign-in">
-            <button className="btn grey lighten-1 black-text" href="./SignIn">Вход</button>
-            </Link>
+                <Link to="/courses">
+                  <button class="field button-field">SignUp</button>
+                </Link>
 
-        <Routes>
-          <Route path="/sign-in" element={<SignIn />} />
-        </Routes>
-        </div>
-      </div>
+                <Routes>
+                  <Route path="/courses" element={<CoursesPage />} />
+                </Routes>
+
+                <div class="form-link">
+                  <span>Already have an account? <a href="/sign-in" class="link login-link">Login</a></span>
+                </div>
+
+                <Routes>
+                  <Route path="/sign-in" element={<SignIn />} />
+                </Routes>
+              </form>
             </div>
-        </div>
+          </div>
+        </section>
+      </body>
     )
 }

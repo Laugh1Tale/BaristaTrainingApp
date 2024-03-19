@@ -11,6 +11,62 @@ type Authorization interface {
 	GetEmployee(email, password string) (model.Employee, error)
 }
 
+type Course interface {
+	Create()
+	GetAll()
+	GetById()
+	Delete()
+	Update()
+}
+
+type Lection interface {
+	Create()
+	GetAll()
+	GetById()
+	Delete()
+	Update()
+}
+
+type Lesson interface {
+	Create()
+	GetAll()
+	GetById()
+	Delete()
+	Update()
+}
+
+type Information interface {
+	Create()
+	GetAll()
+	GetById()
+	Delete()
+	Update()
+}
+
+type Test interface {
+	Create()
+	GetAll()
+	GetById()
+	Delete()
+	Update()
+}
+
+type Question interface {
+	Create()
+	GetAll()
+	GetById()
+	Delete()
+	Update()
+}
+
+type Answer interface {
+	Create()
+	GetAll()
+	GetById()
+	Delete()
+	Update()
+}
+
 type Repository struct {
 	Authorization
 }

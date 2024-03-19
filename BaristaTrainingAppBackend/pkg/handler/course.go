@@ -7,6 +7,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func (h *Handler) createCourse(c *gin.Context) {
+
+}
+
 // @Summary Courses
 // @Tags api
 // @Description courses list
@@ -23,4 +27,16 @@ func (h *Handler) getCourses(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, courses)
+}
+
+func (h *Handler) getCourseById(c *gin.Context) {
+
+}
+
+func (h *Handler) updateCourse(c *gin.Context) {
+
+}
+
+func (h *Handler) deleteCourse(c *gin.Context) {
+
 }

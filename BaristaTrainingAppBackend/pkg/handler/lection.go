@@ -17,9 +17,9 @@ import (
 // @Router /api/lections [get]
 func (h *Handler) getLections(c *gin.Context) {
 	lections := []model.LectionResponse{
-		{Id: 1, Theme: "Латте"},
-		{Id: 2, Theme: "Эспрессо"},
-		{Id: 3, Theme: "Капучино"},
+		{Id: 1, Theme: "Как варить латте"},
+		{Id: 2, Theme: "Как варить эспрессо"},
+		{Id: 3, Theme: "Как варить капучино"},
 	}
 
 	c.JSON(http.StatusOK, lections)
