@@ -21,7 +21,7 @@ export const SignIn = () => {
                 </div>
 
                   <Link to="/courses">
-                  <button class="field button-field" style={{marginRight: 10}}>Войти</button>
+                  <button class="field button-field" style={{marginRight: 10}}>Login</button>
                 </Link>
 
                 <Routes>

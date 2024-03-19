@@ -28,10 +28,9 @@ export const CoursesPage = () => {
         <div class="ag-courses_box">
 
           {courses.map((item, index) => (
-
             <div class="ag-courses_item">
-              {index === 0 ? my_href = "/lessons" : my_href = "/courses"}
-              <a href={my_href} class="ag-courses-item_link">
+              <p style={{display: 'none'}}>{index === 0 ? my_href = "/lessons" : my_href = "/courses"}</p>
+              <a href={my_href} className="ag-courses-item_link">
               <div class="ag-courses-item_bg"></div>
 
               <div class="ag-courses-item_title">

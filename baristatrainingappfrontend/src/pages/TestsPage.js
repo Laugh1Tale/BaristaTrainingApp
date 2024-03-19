@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { LessonsPage } from './LessonsPage'
-//import '../index.css';
+import '../css/tests.css';
 
 export const TestsPage = () => {
     const [questions, setQuestions] = useState([]);
@@ -49,18 +49,15 @@ export const TestsPage = () => {
                                 <h2>{item.theme}</h2>
                                 <h3>{item.text}</h3>
                                 <form action="#">
-    <p>
-      <label>
-        <input name="group1" type="radio" />
-        <span>{answers[0].text}</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input name="group1" type="radio" />
-        <span>{answers[1].text}</span>
-      </label>
-    </p>
+    <div className='radio-item'>
+      <input name="radio" id="radio1" type="radio" />
+      <label for="radio1">{answers[0].text}</label>
+    </div>
+
+    <div className='radio-item'>
+      <input name="radio" id="radio2" type="radio" />
+      <label for="radio2">{answers[1].text}</label>
+    </div>
   </form>
                               </div> 
             ) : <div></div>}
@@ -69,18 +66,15 @@ export const TestsPage = () => {
                                 <h2>{item.theme}</h2>
                                 <h3>{item.text}</h3>
                                 <form action="#">
-    <p>
-      <label>
-        <input name="group1" type="radio" />
-        <span>{answers[2].text}</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input name="group1" type="radio" />
-        <span>{answers[3].text}</span>
-      </label>
-    </p>
+                                <div className='radio-item'>
+      <input name="radio" id="radio3" type="radio" />
+      <label for="radio3">{answers[2].text}</label>
+    </div>
+
+    <div className='radio-item'>
+      <input name="radio" id="radio4" type="radio" />
+      <label for="radio4">{answers[3].text}</label>
+    </div>
   </form>
                               </div>
             ) : <div></div>}
@@ -89,18 +83,15 @@ export const TestsPage = () => {
                                 <h2>{item.theme}</h2>
                                 <h3>{item.text}</h3>
                                 <form action="#">
-    <p>
-      <label>
-        <input name="group1" type="radio" />
-        <span>{answers[4].text}</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input name="group1" type="radio" />
-        <span>{answers[5].text}</span>
-      </label>
-    </p>
+    <div className='radio-item'>
+      <input name="radio" id="radio5" type="radio" />
+      <label for="radio5">{answers[4].text}</label>
+    </div>
+
+    <div className='radio-item'>
+      <input name="radio" id="radio6" type="radio" />
+      <label for="radio6">{answers[5].text}</label>
+    </div>
   </form>
                             </div>
             ) : <div></div>}
@@ -108,13 +99,22 @@ export const TestsPage = () => {
           ))}
         </ul>
       </div>
-      <Link to="/lessons">
-      <button>решить тест</button>
-      </Link>
 
-      <Routes>
-      <Route path="/lessons" element={<LessonsPage />} />
-      </Routes>
+      <section className="container forms">
+          <div className="form login">
+            <div className="form-content">
+              <form action="#">
+                <Link to="/lessons">
+                  <button class="field button-field" >Закончить тест</button>
+                </Link>
+
+                <Routes>
+                  <Route path="/lessons" element={<LessonsPage />} />
+                </Routes>
+              </form>
+            </div>
+          </div>
+        </section>
       </div>
     )
 }

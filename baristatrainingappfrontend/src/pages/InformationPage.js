@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { TestsPage } from './TestsPage'
-//import '../index.css';
+import '../css/courses.css';
 
 export const InformationPage = () => {
     const [information, setInformation] = useState([]);
@@ -68,18 +68,25 @@ export const InformationPage = () => {
 
       </div>
 
-      <h1>Test</h1>   
-        <h2>{tests.theme}</h2>
-        <h3>{tests.description}</h3>
-        <div>
-        <Link to="/tests">
-        <button>решить тест</button>
-        </Link>
+      <section className="container forms">
+          <div className="form login">
+            <div className="form-content">
+              <header>Test</header>
+              <form action="#">
+                <h2>{tests.theme}</h2>
+                <h3>{tests.description}</h3>
 
-        <Routes>
-        <Route path="/tests" element={<TestsPage />} />
-        </Routes>
-        </div>
+                <Link to="/tests">
+                  <button class="field button-field" style={{marginRight: 10}}>Решить тест</button>
+                </Link>
+
+                <Routes>
+                  <Route path="/tests" element={<TestsPage />} />
+                </Routes>
+              </form>
+            </div>
+          </div>
+        </section>
     </div>
     )
 }

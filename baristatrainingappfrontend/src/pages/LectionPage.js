@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, Routes, Route } from "react-router-dom"
 import 'materialize-css';
 import { InformationPage } from './InformationPage'
-//import '../index.css';
+import '../css/courses.css';
 
 export const LectionPage = () => {
     const [lections, setLection] = useState([]);
@@ -30,7 +30,7 @@ export const LectionPage = () => {
         {lections.map((item, index) => (
 
           <div class="ag-courses_item">
-            {index === 0 ? my_href = "/information" : my_href = "/lections"}
+            <p style={{display: 'none'}}>{index === 0 ? my_href = "/information" : my_href = "/lections"}</p>
             <a href={my_href} class="ag-courses-item_link">
             <div class="ag-courses-item_bg"></div>
 
